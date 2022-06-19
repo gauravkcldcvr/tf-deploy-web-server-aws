@@ -18,7 +18,7 @@ This creates resources which are chargeable.
 
 ## Installation
 
-Dependency requried for terraform
+Terraform provider version
 
 ```
 required_version = "<= 0.12.14"
