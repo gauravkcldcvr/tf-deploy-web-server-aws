@@ -36,7 +36,7 @@ $ git clone https://github.com/kararag/tf-demo-web-server.git
 
 Update all the mandatory parameters in file  "terraform.tfvars". By default it creates with demo values in region "ap-south-1". It's tested with default values provided in the terraform.tfvars using ALB. For email notification, it's sns subscription needs to be confirmed from valid email endpoint to get alarms.
 
-To check the parameters 
+To check mandatory parameters 
 
 ```$ vi terraform.tfvars```
 
