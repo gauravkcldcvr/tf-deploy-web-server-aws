@@ -1,8 +1,8 @@
 
-variable "lb_name" {
-  type        = string
-  description = "Application load balancer name"
-}
+# variable "lb_name" {
+#   type        = string
+#   description = "Application load balancer name"
+# }
 
 variable "lb_type" {
   type        = string
@@ -36,5 +36,9 @@ variable "target_type" {
 } 
 
 variable "target_id" {
+  type        = string
+} 
+
+variable "name" {
   type        = string
 } 

@@ -1,6 +1,6 @@
 resource "aws_security_group" "lb" {
 
-  name = var.lg_sg_name
+  name = "lb_security_group"
   description = "Security Group for Load Balancer"
   vpc_id = var.vpc_id
 
@@ -38,7 +38,7 @@ lifecycle {
  
 resource "aws_security_group" "app" {
 
-  name = var.app_sg_name
+  name = "app_security_group"
   description = "Security group for application"
   vpc_id = var.vpc_id
 

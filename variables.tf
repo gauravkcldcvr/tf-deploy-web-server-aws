@@ -1,5 +1,3 @@
-# VPC
-
 variable "region" {
   description = "AWS region when resouces should be created"
   default     = "ap-south-1"
@@ -8,7 +6,7 @@ variable "region" {
 variable "environment" {
   type        = string
   description = "Deployment Environment"
-  default     = "dev"
+  default     = "demo"
 }
 
 variable "vpc_cidr" {
@@ -30,25 +28,23 @@ variable "private_subnets_cidr" {
 
 # Security group
 
-variable "lg_sg_name" {
-  type        = string
-  description = "Load balancer security group name"
-  default     = "demo-alb-sg"
-}
+# variable "lg_sg_name" {
+#   type        = string
+#   description = "Load balancer security group name"
+#   default     = "demo-alb-sg"
+# }
 
-variable "app_sg_name" {
-  type        = string
-  description = "Application security group name"
-  default     = "demo-app-sg"
-}
+# variable "app_sg_name" {
+#   type        = string
+#   description = "Application security group name"
+#   default     = "demo-app-sg"
+# }
 
-# Load balancer
-
-variable "lb_name" {
-  type        = string
-  description = "Application load balancer name"
-  default     = "demo-alb"
-}
+# variable "lb_name" {
+#   type        = string
+#   description = "Application load balancer name"
+#   default     = "demo-alb"
+# }
 
 variable "lb_type" {
   type        = string
@@ -62,25 +58,25 @@ variable "lb_internal" {
   default     = false
 }
 
-variable "alb_bucket_name" {
-  type        = string
-  description = "Bucket for access logs"
-  default     = "demo-alb-access-s3"
-}
+# variable "alb_bucket_name" {
+#   type        = string
+#   description = "Bucket for access logs"
+#   default     = "demo-alb-access-s3"
+# }
 
 # Launch config
 
-variable "launch_configuration_name" {
-  type        = string
-  description = "Name of launch config"
-  default     = "demo-app-launch-config"
-}
+# variable "launch_configuration_name" {
+#   type        = string
+#   description = "Name of launch config"
+#   default     = "demo-app-launch-config"
+# }
 
-variable "ssh_key_pair_name" {
-  type        = string
-  description = "SSH key-pair key name"
-  default     = "demo-app-key"
-}
+# variable "ssh_key_pair_name" {
+#   type        = string
+#   description = "SSH key-pair key name"
+#   default     = "demo-app-key"
+# }
 
 variable "ssh_key_filename" {
   description = "public key file path"
@@ -106,11 +102,11 @@ variable "spot_price" {
 }
 
 
-variable "autoscaling_group_name" {
-  type        = string
-  description = "Name of autoscaling group"
-  default     = "demo-app-asg"
-}
+# variable "autoscaling_group_name" {
+#   type        = string
+#   description = "Name of autoscaling group"
+#   default     = "demo-app-asg"
+# }
 
 variable "min_size" {
   type        = number
@@ -138,11 +134,11 @@ variable "target_type" {
 
 # Alarm cloudwatch
 
-variable "aws_sns_topic_name" {
-  type        = string
-  description = "Name of the SNS topic"
-  default     = "demo-app-sns-topic"
-} 
+# variable "aws_sns_topic_name" {
+#   type        = string
+#   description = "Name of the SNS topic"
+#   default     = "demo-app-sns-topic"
+# } 
 
 variable "protocol" {
   type        = string
@@ -156,17 +152,17 @@ variable "endpoint" {
   default     = "email@id.com" # ChangeMe
 } 
 
-variable "metric" {
-  type        = string
-  description = "Metric Name for the Autoscaling alert alarm"
-  default     = "CPUUtilization"
-} 
+# variable "metric" {
+#   type        = string
+#   description = "Metric Name for the Autoscaling alert alarm"
+#   default     = "CPUUtilization"
+# } 
 
-variable "threshold" {
-  type        = number
-  description = "Threshold value for the metrics alarm"
-  default     = 50
-} 
+# variable "threshold" {
+#   type        = number
+#   description = "Threshold value for the metrics alarm"
+#   default     = 50
+# } 
 
 
 

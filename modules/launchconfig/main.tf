@@ -99,7 +99,7 @@ resource "aws_autoscaling_attachment" "asg_attachment_bar" {
 
 resource "aws_autoscaling_policy" "demo-asg-policy" {
   
-  name                   = "demo-asg-scaling-policy"
+  name                   = "${var.autoscaling_group_name}-scaling-policy"
   autoscaling_group_name = aws_autoscaling_group.demo_app_as.name
   policy_type            = "TargetTrackingScaling"
 

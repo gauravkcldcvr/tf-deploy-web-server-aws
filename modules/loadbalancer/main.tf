@@ -62,7 +62,7 @@ POLICY
 }
 
 resource "aws_lb" "demo-lb" {
-  name               = var.lb_name
+  name               = var.name
   internal           = var.lb_internal
   load_balancer_type = var.lb_type
   security_groups    = var.security_groups
@@ -71,13 +71,13 @@ resource "aws_lb" "demo-lb" {
 
   access_logs {
     bucket  = aws_s3_bucket.alb_logs.bucket
-    prefix  = "demo-lb-logs"
+    prefix  = "${var.name}-lb-logs"
     enabled = true
   }
 
   tags = {
     Environment = "demo"
-    Name        = "demo-application-lb"
+    Name        = "application-lb"
   }
 
   lifecycle {
@@ -86,7 +86,7 @@ resource "aws_lb" "demo-lb" {
 }
 
 resource "aws_lb_target_group" "demo-app-http-tg" {
-  name            = "demo-app-http-tg"
+  name            = "app-http-tg"
   port            = 80
   protocol        = "HTTP"
   target_type     = var.target_type
