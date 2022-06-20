@@ -40,9 +40,13 @@ To check mandatory parameters to pass here refer comments
 
 ```$ vi terraform.tfvars```
 
-For S3 backend, update the s3 bucket name in file "backend.tf"
+For S3 backend, update the existing s3 bucket name in file "backend.tf"
 
 ```$ vi backend.tf```
+
+To initialize the terraform plugins and modules
+ 
+```$ terraform init```
 
 To check the terraform plan and verify
 
