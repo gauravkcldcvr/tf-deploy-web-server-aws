@@ -19,8 +19,14 @@ lb_type     = "application"
 # Public facing or internal load balancer
 lb_internal     = false
 
-# SSH file path 
+# To create a new key pair or use an existing one. 
+create_new_key_pair = true
+
+# SSH file path, if above it "true"
 ssh_key_filename     = "~/.ssh/demo-app.pub"
+
+# Existing SSH key-pair
+key_pair_existing = "root-key"
 
 # Type of SPOT ec2 instance
 instance_type     = "t2.micro"

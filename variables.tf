@@ -78,9 +78,17 @@ variable "lb_internal" {
 #   default     = "demo-app-key"
 # }
 
+variable "create_new_key_pair" {
+  description = "To create key pair or not"
+  default     = false
+}
 variable "ssh_key_filename" {
   description = "public key file path"
-  default     = "~/.ssh/demo-app.pub"
+  default     = "~/.ssh/id_rsa.pub"
+}
+variable "key_pair_existing" {
+  description = "If create_new_key_pair is false, provide existing key pair name here."
+  default     = "key-pair-name-already-available"
 }
 
 variable "instance_type" {

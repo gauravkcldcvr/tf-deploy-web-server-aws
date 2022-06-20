@@ -17,6 +17,7 @@ data "aws_ami" "ubuntu" {
 data "aws_availability_zones" "all" {}
 
 resource "aws_key_pair" "demo_app_key" {
+  count      = var.create_new_key_pair ? 1 : 0
   key_name   = var.ssh_key_pair_name
   public_key = file(var.ssh_key_filename)
 
@@ -32,7 +33,8 @@ resource "aws_launch_configuration" "demo_app_lc" {
   instance_type         = var.instance_type
   spot_price            = var.spot_price
   security_groups       = var.security_groups
-  key_name              = aws_key_pair.demo_app_key.key_name
+  # key_name              = aws_key_pair.demo_app_key.key_name
+  key_name              = var.create_new_key_pair ? element(concat(aws_key_pair.demo_app_key.*.key_name, [""]), 0) : var.key_pair_existing
   user_data = <<-EOF
               #!/bin/bash
               sudo apt install nginx -y
@@ -79,7 +81,7 @@ resource "aws_autoscaling_group" "demo_app_as" {
 
   tag {
     key                 = "Name"
-    value               = "demo-app-asg"
+    value               = "app-asg"
     propagate_at_launch = true
   }
 

@@ -42,8 +42,10 @@ module "launchconfig" {
 
   launch_configuration_name = format("%s-launch-config", var.environment)
   security_groups           = module.securitygroup.app_sg_id[*].id
-  ssh_key_pair_name         = format("%s-key-pair", var.environment)
+  create_new_key_pair       = var.create_new_key_pair
+  ssh_key_pair_name         = format("%s-app-key-pair", var.environment)
   ssh_key_filename          = var.ssh_key_filename
+  key_pair_existing         = var.key_pair_existing
   instance_type             = var.instance_type
   spot_price                = var.spot_price
   root_volume_size          = var.root_volume_size

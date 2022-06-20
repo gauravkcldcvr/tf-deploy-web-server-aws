@@ -12,7 +12,10 @@ variable "root_volume_size" {
   type        = any
   description = "Root EBS size of the EC2"
 } 
-
+variable "create_new_key_pair" {
+  type        = bool
+  description = "If to create key pair or not"
+}
 variable "ssh_key_pair_name" {
   type        = string
   description = "SSH key-pair key name"
@@ -21,6 +24,11 @@ variable "ssh_key_pair_name" {
 variable "ssh_key_filename" {
   type        = any
   description = "public key file"
+}
+
+variable "key_pair_existing" {
+  description = "If create_new_key_pair is false, provide existing key pair name here."
+  type        = string 
 }
 
 variable "instance_type" {

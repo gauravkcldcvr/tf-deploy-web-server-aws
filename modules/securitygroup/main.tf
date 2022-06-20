@@ -5,7 +5,7 @@ resource "aws_security_group" "lb" {
   vpc_id = var.vpc_id
 
   tags = {
-    Name        = "demo-lb"
+    Name        = "app-lb"
     ManagedBy   = "terraform"
 
   }
@@ -44,7 +44,7 @@ resource "aws_security_group" "app" {
 
   tags = {
 
-    Name        = "demo-app"
+    Name        = "app"
     Role        = "private-http"
     ManagedBy   = "terraform"
 

@@ -56,8 +56,8 @@ resource "aws_s3_bucket" "alb_logs" {
 POLICY
 
   tags = {
-    Name        = "alb-access-logs"
-    Environment = "dev"
+    Name        = "${var.name}-access-logs"
+    Environment = "${var.name}"
   }
 }
 
@@ -76,8 +76,8 @@ resource "aws_lb" "demo-lb" {
   }
 
   tags = {
-    Environment = "demo"
-    Name        = "application-lb"
+    Environment = "${var.name}"
+    Name        = "${var.name}-application"
   }
 
   lifecycle {
